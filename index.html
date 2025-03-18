@@ -5,6 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Gaming</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url('https://i.postimg.cc/C5FSrT3s/rauYQCo.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 220px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            border-radius: 10px 0 0 10px;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar h1 {
+            color: yellow;
+            text-align: center;
+            font-size: 22px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: left;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .sidebar ul li:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .sidebar ul li a {
+            color: #D2B48C;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 40px;
+            color: white;
+        }
+        h1 {
+            color: #D2B48C;
+            margin-bottom: 20px;
+        }
+        .game-image {
+            width: 150px;
+            display: block;
+            margin-top: 10px;
+        }
+        .section {
+            display: none;
+        }
+        .active-section {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -24,39 +88,27 @@
         <section id="home" class="section active-section">
             <h1>Home</h1>
             <h2>Infinite Maze</h2>
-            <a href="https://infinitemaze41.tiiny.site/" target="_blank" class="game-link" onclick="trackGame(event, 'Infinite Maze', 'https://infinitemaze41.tiiny.site/', 'https://i.postimg.cc/9XY0vcLH/maze.png')">
+            <a href="https://infinitemaze41.tiiny.site/" target="_blank" onclick="trackGame(event, 'Infinite Maze', 'https://infinitemaze41.tiiny.site/', 'https://i.postimg.cc/9XY0vcLH/maze.png')">
                 <img src="https://i.postimg.cc/9XY0vcLH/maze.png" alt="Maze Game" class="game-image">
             </a>
+            <h2>Track Monsters</h2>
+            <a href="https://avhlabs-gaming.github.io/racing/" target="_blank" onclick="trackGame(event, 'Track Monsters', 'https://avhlabs-gaming.github.io/racing/', 'https://i.postimg.cc/wMK0d27Z/test-tr.webp')">
+                <img src="https://i.postimg.cc/wMK0d27Z/test-tr.webp" alt="Track Monsters" class="game-image">
+            </a>
         </section>
-        
         <section id="action" class="section">
             <h1>Action & Combat</h1>
         </section>
-        
         <section id="sports" class="section">
             <h1>Sports Games</h1>
         </section>
-        
         <section id="racing" class="section">
             <h1>Racing Games</h1>
-        </section>
-        
-        <section id="multiplayer" class="section">
-            <h1>Multiplayer Games</h1>
-        </section>
-        
-        <section id="survival" class="section">
-            <h1>Survival Games</h1>
-        </section>
-        
-        <section id="puzzle" class="section">
-            <h1>Puzzle Quest</h1>
-            <h2>Infinite Maze</h2>
-            <a href="https://infinitemaze41.tiiny.site/" target="_blank" class="game-link" onclick="trackGame(event, 'Infinite Maze', 'https://infinitemaze41.tiiny.site/', 'https://i.postimg.cc/9XY0vcLH/maze.png')">
-                <img src="https://i.postimg.cc/9XY0vcLH/maze.png" alt="Maze Game" class="game-image">
+            <h2>Track Monsters</h2>
+            <a href="https://avhlabs-gaming.github.io/racing/" target="_blank" onclick="trackGame(event, 'Track Monsters', 'https://avhlabs-gaming.github.io/racing/', 'https://i.postimg.cc/wMK0d27Z/test-tr.webp')">
+                <img src="https://i.postimg.cc/wMK0d27Z/test-tr.webp" alt="Track Monsters" class="game-image">
             </a>
         </section>
-
         <section id="recently-played" class="section">
             <h1>Recently Played</h1>
             <ul id="recently-played-list"></ul>
@@ -69,7 +121,7 @@
             });
             document.getElementById(sectionId).classList.add('active-section');
         }
-
+        
         function trackGame(event, gameName, gameLink, gameImage) {
             event.preventDefault();
             saveRecentlyPlayed(gameName, gameLink, gameImage);
